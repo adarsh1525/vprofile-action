@@ -52,7 +52,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: checkot
-              uses: actions/checkout@v2
+              uses: actions/checkout@v4
 
             - name: upload image to ECR
               uses: appleboy/docker-ecr-action@master
