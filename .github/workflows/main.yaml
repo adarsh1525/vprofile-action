@@ -90,7 +90,7 @@ jobs:
           run : cat ~/.kube/config
 
         - name: login to ECR
-          run: kubectl create secret docker-registry regcred3 --docker-server=${{ secrets.REGISTRY }} --docker-username=AWS --docker-password=$(aws ecr get-login-password) 
+          run: kubectl create secret docker-registry regcred4 --docker-server=${{ secrets.REGISTRY }} --docker-username=AWS --docker-password=$(aws ecr get-login-password) 
         
         - name: Install Helm
           uses: azure/setup-helm@v3
