@@ -90,7 +90,7 @@ jobs:
           run : cat ~/.kube/config
 
         - name: login to ECR
-          run: kubectl create secret docker-registry regcred2 --docker-server=${{ secrets.REGISTRY }} --docker-username=AWS --docker-password=$(aws ecr get-login-password) 
+          run: kubectl create secret docker-registry regcred3 --docker-server=${{ secrets.REGISTRY }} --docker-username=AWS --docker-password=$(aws ecr get-login-password) 
         
         - name: Install Helm
           uses: azure/setup-helm@v3
@@ -102,7 +102,7 @@ jobs:
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
             aws-region: ${{ env.AWS_REGION }}
             cluster-name: ${{ env.EKS_CLUSTER }}
-            chart-path: helm/vprofilecharts
+            chart-path: helm/vprofilehelmcharts
             namespace: default
             values: appimage=${{ secrets.REGISTRY }}/${{ env.ECR_REPOSITORY }},apptag=${{ github.run_number }}
             name: vprofile-stack
